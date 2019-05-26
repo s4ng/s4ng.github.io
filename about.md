@@ -15,7 +15,7 @@ header-img: img/about.jpg
 
 ### 이력
 
-- 
+- 대진대학교에서 컴퓨터공학 전공 2017 ~ Present
 
 <br />
 
