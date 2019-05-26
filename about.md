@@ -11,7 +11,7 @@ header-img: img/about.jpg
 
 대학교에서 컴퓨터 공학을 전공하고있고, Javascript를 주력으로 공부중이다.
 
-# Media
+# Information
 
 ### 이력
 
