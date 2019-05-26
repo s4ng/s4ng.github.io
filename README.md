@@ -1,6 +1,5 @@
 # This is my portfolio site based on blog.
-http://jihyeleee.com/
-![image](http://www.jihyeleee.com/img/share-img.jpg)
+http://s4ng.github.io/
 It's forked from (chesterhow/tale)[https://github.com/chesterhow/tale].
 
-© Jihye Leee. 2017
+© Sang-geun Lee. 2017
