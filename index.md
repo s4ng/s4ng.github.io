@@ -10,9 +10,9 @@ description: 이상근 입니다.
     <h1 class="intro">
     I'm Sang-geun Lee,
     </h1>
-    <h1 class="intro">My github is  
+    <h1 class="intro">My portfolio is  
         <div class="intro-link">
-            <a class="transition" href="http://github.com/s4ng" target="_blank">
+            <a class="transition" href="http://s4ng.github.io/portfolio" target="_blank">
                 HERE
             </a>
             <div class="underline-mask transition"></div>
