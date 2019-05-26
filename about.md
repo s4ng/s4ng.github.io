@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Sang-geun Lee"
+title: "s4ng"
 subtitle: "이상근"
 type: "About"
 author: "Sang-geun Lee"
