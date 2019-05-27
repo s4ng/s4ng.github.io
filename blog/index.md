@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Blog"
-description: 포스팅하는 공간입니다.
+description: 블로그 입니다.
 main: true
 project-header: true
 header-img: img/about.jpg
