@@ -6,7 +6,7 @@ type: "Year in Review"
 blog: true
 text: true
 author: "Jihye Leee"
-post-header: true
+post-header: false
 header-img: "img/header.jpg"
 order: 8
 ---
