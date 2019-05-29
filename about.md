@@ -18,10 +18,3 @@ header-img: img/about.jpg
 - 대진대학교에서 컴퓨터공학 전공 2017 ~ Present
 
 <br />
-
-### Skill
-
-- 
-
-<br />
-
