@@ -1,7 +1,5 @@
 - name: Javascript
 - name: React
-- name: Unity
-- name: C#
 - name: Algorithm
 - name: Java
-- name: Python
+- name: C++
