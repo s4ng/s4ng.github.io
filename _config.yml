@@ -4,7 +4,7 @@ permalink:      /:year-:month-:day/:title
 # Setup
 title:          s4ng
 baseurl:        ""
-url:            "http://s4ng.github.io"
+url:            "https://s4ng.github.io"
 
 # Assets
 sass:
@@ -17,7 +17,7 @@ markdown:       kramdown
 # About
 author:
   name:         s4ng
-  url:          http://s4ng.github.io/
+  url:          https://s4ng.github.io/
   email:        zalcls951201@gmail.com  
   github:       s4ng
   twitter:      
