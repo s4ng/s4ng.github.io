@@ -2,7 +2,7 @@
 layout: post
 title:  ""
 subtitle: ""
-type: "type"
+type: ""
 blog: true
 text: true
 author: "s4ng"
