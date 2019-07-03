@@ -8,13 +8,10 @@ permalink: /about/
 post-header: true
 header-img: img/about.jpg
 ---
-
-대학교에서 컴퓨터 공학을 전공하고있습니다.
-
 # Information
 
 ### 이력
 
-- 대진대학교에서 컴퓨터공학 전공  ~ 2021
+- 대진대학교 컴퓨터공학 전공 2014 ~ 2021
 
 <br />

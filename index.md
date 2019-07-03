@@ -19,7 +19,6 @@ description: 이상근 입니다.
             <div class="underline"></div>
         </div>.
     </h1>
-    <h2 class="intro">'이상근' 프로그래밍을 공부하는 학생입니다.</h2>
 </section>
 </div>
 {% include resume.html %}

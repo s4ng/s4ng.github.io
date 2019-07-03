@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "1"
-subtitle: "1"
+title:  ""
+subtitle: ""
 type: "type"
 blog: true
 text: true
@@ -10,4 +10,3 @@ post-header: false
 header-img: ""
 order: 8
 ---
-
