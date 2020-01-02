@@ -8,16 +8,17 @@ description: 이상근 입니다.
 <div class="intro-animation">
 <section class="explanation">
     <h1 class="intro">
-    I'm Sang-geun Lee,
+    안녕하세요 이상근입니다.
     </h1>
-    <h1 class="intro">Portfolio ->  
+    <h1 class="intro">저의 
         <div class="intro-link">
             <a class="transition" href="http://s4ng.github.io/portfolio" target="_blank">
-                HERE
+                포트폴리오 
             </a>
             <div class="underline-mask transition"></div>
             <div class="underline"></div>
-        </div>.
+        </div>
+        입니다.
     </h1>
 </section>
 </div>
