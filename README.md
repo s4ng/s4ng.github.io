@@ -1,4 +1,4 @@
-# This is my portfolio site based on blog.
+# s4ng 블로그 입니다.
 http://s4ng.github.io/
 
 It's forked from (chesterhow/tale)[https://github.com/chesterhow/tale].
