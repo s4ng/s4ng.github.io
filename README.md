@@ -1,4 +1,4 @@
-# s4ng 블로그 입니다.
+# s4ng의 블로그 입니다.
 http://s4ng.github.io/
 
 It's forked from (chesterhow/tale)[https://github.com/chesterhow/tale].
