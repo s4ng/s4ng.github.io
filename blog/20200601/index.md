@@ -133,7 +133,7 @@ colorscheme cobalt2
 
 
 
-# 3. skywind3000/asyncrun.vim - 
+# 3. skywind3000/asyncrun.vim
 > Plug 'skywind3000/asyncrun.vim'
 
 **비동기 코드 실행 플러그인**. Neovim의 새로운 API를 활용해서 백그라운드의 쉘에서 코드를 실행하고 vim 내에서 실시간으로 출력할 수 있다. 알고리즘 문제를 풀 때 처럼 코드를 개별적으로 컴파일하는 상황에 매우 편리한 플러그인이다. 나는 F5를 누르면 Filetype을 체크하고 각각 확장자별로 다른 명령을 매핑하여 사용하고 있다.
