@@ -2,6 +2,7 @@
 layout: post
 title:  "롤토체스 유닛 조합식 / 아이템 조합표 모음"
 subtitle: "#리그오브레전드 #전략적 팀 전투 #롤토체스"
+date: 2019-07-03
 type: "League of Legends"
 blog: true
 text: true

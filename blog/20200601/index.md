@@ -2,6 +2,7 @@
 layout: post
 title:  "나의 Neovim 설정과 추천 플러그인"
 subtitle: "#Neovim #Plugin #theme"
+date: 2020-06-01
 type: "information"
 blog: true
 text: true
