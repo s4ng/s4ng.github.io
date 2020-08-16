@@ -12,7 +12,7 @@ description: 이상근 입니다.
     </h1>
     <h1 class="intro">This is my
         <div class="intro-link">
-            <a class="transition" href="http://s4ng.github.io/portfolio" target="_blank">
+            <a class="transition" href="https://www.notion.so/Sang-geun-Lee-c84b58fb08cd43bc8062a3fd332fc461" target="_blank">
                 Portfolio
             </a>
             <div class="underline-mask transition"></div>
