@@ -12,10 +12,11 @@ header-img: ""
 order: 8
 ---
 
-# hi-nest
-
 ## 개요
+
 NestJS 프레임워크 실습 프로젝트 by [Nomad Coders](https://nomadcoders.co/nestjs-fundamentals/lobby)
+
+### [Repository](https://github.com/s4ng/hi-nest)
 
 ## 1. Project Setup
 
