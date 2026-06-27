@@ -54,6 +54,9 @@ const config = {
             'https://github.com/s4ng/s4ng.github.io/tree/main/',
         },
         blog: {
+          routeBasePath: '/', // 블로그를 사이트 루트에 서빙
+          blogTitle: "s4ng's blog",
+          blogDescription: '개발 블로그와 공부 정리',
           showReadingTime: true,
           feedOptions: {
             type: ['rss', 'atom'],
@@ -88,7 +91,6 @@ const config = {
           src: 'img/logo.svg',
         },
         items: [
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
             type: 'docSidebar',
             sidebarId: 'docsSidebar',
@@ -110,7 +112,7 @@ const config = {
             items: [
               {
                 label: 'Blog',
-                to: '/blog',
+                to: '/',
               },
               {
                 label: '공부 정리',
