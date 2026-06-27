@@ -1,0 +1,10 @@
+{
+  "label": "운영체제 강의",
+  "position": 1,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "description": "운영체제 강의를 공부하며 정리한 노트입니다."
+  }
+}

@@ -1,0 +1,9 @@
+hello:
+  label: Hello
+  permalink: /hello
+  description: 첫 글 / 소개
+
+dev:
+  label: Dev
+  permalink: /dev
+  description: 개발 관련 글
