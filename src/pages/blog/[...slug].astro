@@ -1,0 +1,26 @@
+---
+import { getCollection, render } from 'astro:content';
+import Post from '../../layouts/Post.astro';
+import { toSlug } from '../../lib/utils';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: toSlug(post.id) },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Post
+  title={post.data.title}
+  date={post.data.date}
+  tags={post.data.tags}
+  backHref="/"
+  backLabel="블로그"
+>
+  <Content />
+</Post>

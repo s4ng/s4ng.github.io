@@ -1,0 +1,80 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { toSlug } from '../../lib/utils';
+
+const docs = await getCollection('study');
+
+// Display order of the top-level categories (대메뉴).
+const CATEGORY_ORDER = ['Java', '디자인 패턴'];
+// Display order of groups within a category (서브그룹).
+const GROUP_ORDER: Record<string, string[]> = {
+  Java: ['이펙티브 자바 3E', '자바 JVM 강의 정리'],
+};
+
+type Doc = (typeof docs)[number];
+
+function sortByConfig(values: string[], order: string[]) {
+  return [...values].sort((a, b) => {
+    const ia = order.indexOf(a);
+    const ib = order.indexOf(b);
+    return (ia === -1 ? 999 : ia) - (ib === -1 ? 999 : ib) || a.localeCompare(b);
+  });
+}
+
+// build category -> group -> docs
+const categories = sortByConfig(
+  [...new Set(docs.map((d) => d.data.category))],
+  CATEGORY_ORDER
+).map((category) => {
+  const inCategory = docs.filter((d) => d.data.category === category);
+  const groupNames = sortByConfig(
+    [...new Set(inCategory.map((d) => d.data.group ?? ''))],
+    GROUP_ORDER[category] ?? []
+  );
+  const groups = groupNames.map((group) => ({
+    group,
+    docs: inCategory
+      .filter((d) => (d.data.group ?? '') === group)
+      .sort((a, b) => a.data.order - b.data.order) as Doc[],
+  }));
+  return { category, groups };
+});
+---
+
+<Base title="학습기록">
+  <h1 class="mb-10 text-2xl font-bold">학습기록</h1>
+
+  <div class="space-y-12">
+    {
+      categories.map(({ category, groups }) => (
+        <section>
+          <h2 class="mb-5 text-xl font-bold text-accent">{category}</h2>
+          <div class="space-y-6">
+            {groups.map(({ group, docs }) => (
+              <div>
+                {group && (
+                  <h3 class="mb-3 text-base font-semibold text-fg-muted">
+                    {group}
+                  </h3>
+                )}
+                <ul class="space-y-2 border-l border-border pl-4">
+                  {docs.map((doc) => (
+                    <li>
+                      <a
+                        href={`/study/${toSlug(doc.id)}/`}
+                        class="text-fg hover:text-accent"
+                      >
+                        {doc.data.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+      ))
+    }
+  </div>
+</Base>

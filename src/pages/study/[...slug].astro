@@ -1,0 +1,23 @@
+---
+import { getCollection, render } from 'astro:content';
+import Post from '../../layouts/Post.astro';
+import { toSlug } from '../../lib/utils';
+
+export async function getStaticPaths() {
+  const docs = await getCollection('study');
+  return docs.map((doc) => ({
+    params: { slug: toSlug(doc.id) },
+    props: { doc },
+  }));
+}
+
+const { doc } = Astro.props;
+const { Content } = await render(doc);
+const crumb = doc.data.group
+  ? `${doc.data.category} · ${doc.data.group}`
+  : doc.data.category;
+---
+
+<Post title={doc.data.title} backHref="/study" backLabel={`학습기록 (${crumb})`}>
+  <Content />
+</Post>

@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+/* ---- Material Darker palette (dark only) ---- */
+:root {
+  --bg: #212121;
+  --bg-elev: #2a2a2a;
+  --fg: #eeffff;
+  --fg-muted: #b0bec5;
+  --accent: #80cbc4;
+  --accent-hover: #a7ded8;
+  --border: #37474f;
+}
+
+@theme {
+  --color-bg: var(--bg);
+  --color-bg-elev: var(--bg-elev);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-accent: var(--accent);
+  --color-border: var(--border);
+  --font-sans: ui-sans-serif, system-ui, "Apple SD Gothic Neo", "Malgun Gothic",
+    "Noto Sans KR", sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", "JetBrains Mono", "Fira Code",
+    Consolas, monospace;
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* ---- Article prose (markdown body) ---- */
+.prose {
+  color: var(--fg);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+.prose > * + * {
+  margin-top: 1.15rem;
+}
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  color: var(--fg);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 2.2rem;
+  margin-bottom: 0.2rem;
+  scroll-margin-top: 5rem;
+}
+.prose h1 {
+  font-size: 1.9rem;
+}
+.prose h2 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.3rem;
+}
+.prose h3 {
+  font-size: 1.25rem;
+}
+.prose h4 {
+  font-size: 1.1rem;
+}
+.prose p,
+.prose ul,
+.prose ol,
+.prose blockquote {
+  color: var(--fg);
+}
+.prose ul,
+.prose ol {
+  padding-left: 1.4rem;
+}
+.prose ul {
+  list-style: disc;
+}
+.prose ol {
+  list-style: decimal;
+}
+.prose li + li {
+  margin-top: 0.35rem;
+}
+.prose blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 1rem;
+  color: var(--fg-muted);
+  font-style: italic;
+}
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-top: 1.4rem;
+  margin-bottom: 1.4rem;
+}
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.5rem 0;
+}
+.prose table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.prose th,
+.prose td {
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+.prose th {
+  background-color: var(--bg-elev);
+}
+
+/* inline code */
+.prose :not(pre) > code {
+  background-color: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.1rem 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+/* shiki code blocks */
+.prose pre {
+  background-color: var(--bg-elev) !important;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.15rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.prose pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-mono);
+}
