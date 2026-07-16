@@ -24,8 +24,8 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
     {
       years.map((year) => (
         <section>
-          <h2 class="mb-4 text-lg font-semibold text-fg-muted">{year}</h2>
-          <ul class="space-y-3">
+          <h2 class="mb-4 text-xl font-semibold text-fg-muted">{year}</h2>
+          <ul class="space-y-1.5">
             {byYear.get(year)!.map((post) => (
               <li class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-4">
                 <time

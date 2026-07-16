@@ -1,7 +1,9 @@
-# s4ng's blog
+# blog
 
 [Astro](https://astro.build/) + Content Collections 기반 개인 블로그 + 공부 정리 사이트.
+
 `main` 브랜치에 push하면 GitHub Actions가 자동으로 빌드·배포합니다.
+
 배포 주소: https://s4ng.github.io/
 
 - 다크 전용 테마 (배경: Material Darker `#212121`)
@@ -33,9 +35,6 @@ tags: [dev]
 
 본문 시작...
 ```
-
-- Docusaurus와 달리 순수 마크다운(`.md`)이라 `{/* truncate */}` 같은 마커가 필요 없습니다.
-- 목록에는 제목·날짜만 노출되므로 별도 미리보기 표시는 없습니다.
 
 ### 공부 정리 (study)
 
@@ -80,21 +79,6 @@ src/content/blog/
 ```
 
 - 큰 원본 이미지는 미리 줄여서 커밋하세요.
-
-## Notion 글 마이그레이션
-
-1. Notion 페이지/DB 열기 → `···` → **Export**
-   - **Format: `Markdown & CSV`**
-   - **Include subpages: 켜기**
-   - **Create folders for subpages: 켜기** (중첩 구조 유지에 중요)
-2. zip 압축 해제 후 저장소 구조로 배치
-   - 블로그 글 → `src/content/blog/`, 파일명을 `YYYY-MM-DD-slug.md`로 정리하고 frontmatter(`title`/`date`/`tags`) 추가
-   - 공부 정리 → `src/content/study/` 하위 폴더에 배치하고 frontmatter(`title`/`category`/`group`/`order`) 추가
-3. 변환 시 보정할 점
-   - 파일명/폴더명의 공백·해시(`My Page abc123.md`) → 영문 슬러그(`my-page.md`)
-   - Notion 내부 링크(`다른글%20abc123.md`) → 상대경로/사이트 경로로 수정
-   - 이미지 경로를 위 "이미지 첨부" 규칙에 맞게 조정
-4. **`npm run build`로 검증** — 스키마 위반·깨진 참조를 빌드가 잡아줍니다.
 
 ## 로컬 개발
 
