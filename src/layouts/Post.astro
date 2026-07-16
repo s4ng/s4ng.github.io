@@ -36,3 +36,27 @@ const { title, date, tags = [], backHref, backLabel } = Astro.props;
     </div>
   </article>
 </Base>
+
+<script>
+  const diagrams = document.querySelectorAll<HTMLElement>('pre.mermaid');
+  if (diagrams.length > 0) {
+    const { default: mermaid } = await import('mermaid');
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'dark',
+      securityLevel: 'strict',
+      fontFamily:
+        'ui-sans-serif, system-ui, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif',
+    });
+    mermaid.run({ nodes: Array.from(diagrams) });
+  }
+</script>
+
+<style is:global>
+  .prose pre.mermaid {
+    background: none !important;
+    border: none;
+    padding: 0;
+    text-align: center;
+  }
+</style>
