@@ -112,6 +112,9 @@ a:hover {
   margin-top: 1.4rem;
   margin-bottom: 1.4rem;
 }
+.prose .img-half img {
+  max-width: 50%;
+}
 .prose hr {
   border: none;
   border-top: 1px solid var(--border);
