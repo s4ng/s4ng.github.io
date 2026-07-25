@@ -4,16 +4,17 @@ import { formatDate } from '../lib/utils';
 
 interface Props {
   title: string;
+  description?: string;
   date?: Date;
   tags?: string[];
   backHref: string;
   backLabel: string;
 }
 
-const { title, date, tags = [], backHref, backLabel } = Astro.props;
+const { title, description, date, tags = [], backHref, backLabel } = Astro.props;
 ---
 
-<Base title={title}>
+<Base title={title} description={description} type="article" publishedDate={date}>
   <a href={backHref} class="text-sm text-fg-muted hover:text-fg"
     >← {backLabel}</a
   >

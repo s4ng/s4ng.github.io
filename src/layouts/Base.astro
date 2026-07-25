@@ -6,11 +6,34 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title?: string;
   description?: string;
+  type?: 'website' | 'article';
+  publishedDate?: Date;
 }
 
-const { title, description = '개발 블로그와 학습 기록' } = Astro.props;
-const siteName = "이상근";
+const {
+  title,
+  description = '개발 블로그와 학습 기록',
+  type = 'website',
+  publishedDate,
+} = Astro.props;
+const siteName = '이상근';
 const pageTitle = title ? `${siteName} | ${title}` : siteName;
+
+// Absolute canonical URL for this page (Astro.site must be set in astro.config.mjs).
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const jsonLd =
+  type === 'article'
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: title ?? siteName,
+        description,
+        url: canonicalURL.href,
+        ...(publishedDate && { datePublished: publishedDate.toISOString() }),
+        author: { '@type': 'Person', name: siteName },
+      }
+    : null;
 ---
 
 <!doctype html>
@@ -19,9 +42,32 @@ const pageTitle = title ? `${siteName} | ${title}` : siteName;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
     <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:locale" content="ko_KR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+
+    {
+      jsonLd && (
+        <script
+          type="application/ld+json"
+          set:html={JSON.stringify(jsonLd)}
+        />
+      )
+    }
   </head>
   <body class="flex min-h-screen flex-col">
     <Header />

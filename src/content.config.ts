@@ -7,6 +7,7 @@ const blog = defineCollection({
     title: z.string(),
     date: z.coerce.date(),
     tags: z.array(z.string()).optional().default([]),
+    description: z.string().optional(),
   }),
 });
 
@@ -17,6 +18,7 @@ const study = defineCollection({
     category: z.string(),
     group: z.string().optional(),
     order: z.number().default(0),
+    description: z.string().optional(),
   }),
 });
 

@@ -10,3 +10,16 @@ export function formatDate(date: Date): string {
 export function toSlug(id: string): string {
   return id.replace(/\/index$/, '');
 }
+
+/** Strip markdown/HTML from a body and return a plain-text excerpt for meta descriptions. */
+export function excerpt(markdown: string, maxLength = 160): string {
+  const text = markdown
+    .replace(/```[\s\S]*?```/g, ' ') // fenced code blocks
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ') // images
+    .replace(/<[^>]+>/g, ' ') // raw html tags
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1') // links -> link text
+    .replace(/[#>*_`~|]/g, ' ') // markdown symbols
+    .replace(/\s+/g, ' ')
+    .trim();
+  return text.length > maxLength ? text.slice(0, maxLength).trimEnd() + '…' : text;
+}

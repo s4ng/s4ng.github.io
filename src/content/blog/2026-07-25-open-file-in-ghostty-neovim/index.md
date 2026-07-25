@@ -2,6 +2,7 @@
 title: Mac OS Finder에서 파일을 Ghostty + Neovim으로 열기
 date: 2026-07-25
 tags: [util]
+description: Mac OS Finder에서 파일을 더블클릭하면 Ghostty 터미널 + Neovim으로 열리도록 Automator로 설정하는 방법을 정리한다.
 ---
 
 Mac OS Finder에서 파일을 더블클릭했을 때 Ghostty 터미널 + Neovim으로 열리게 하는 방법이다.
