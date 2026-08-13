@@ -6,6 +6,13 @@ export function formatDate(date: Date): string {
   return `${y}-${m}-${d}`;
 }
 
+/** Format a date as MM.DD, for lists that are already grouped under a year heading. */
+export function formatMonthDay(date: Date): string {
+  const m = String(date.getUTCMonth() + 1).padStart(2, '0');
+  const d = String(date.getUTCDate()).padStart(2, '0');
+  return `${m}.${d}`;
+}
+
 /** Content collection ids for `foo/index.md` become `foo/index`; strip it for clean URLs. */
 export function toSlug(id: string): string {
   return id.replace(/\/index$/, '');

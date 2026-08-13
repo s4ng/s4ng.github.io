@@ -20,7 +20,7 @@ const { title, description, date, tags = [], backHref, backLabel } = Astro.props
   >
   <article class="mt-6">
     <header class="mb-8">
-      <h1 class="text-3xl font-bold leading-tight text-fg">{title}</h1>
+      <h1 class="text-3xl font-bold leading-snug text-balance text-fg">{title}</h1>
       {
         (date || tags.length > 0) && (
           <div class="mt-3 flex flex-wrap items-center gap-3 text-sm text-fg-muted">
@@ -39,6 +39,43 @@ const { title, description, date, tags = [], backHref, backLabel } = Astro.props
 </Base>
 
 <script>
+  // Wrap each code block so an absolutely-positioned copy button can sit on top
+  // of it without scrolling away with the <pre>'s horizontal overflow.
+  for (const pre of document.querySelectorAll<HTMLPreElement>(
+    '.prose pre:not(.mermaid)'
+  )) {
+    const source = pre.querySelector('code')?.textContent ?? pre.textContent;
+    if (!source) continue;
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'code-block';
+    pre.replaceWith(wrapper);
+    wrapper.appendChild(pre);
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'code-copy';
+    button.textContent = '복사';
+    button.setAttribute('aria-label', '코드 복사');
+    wrapper.appendChild(button);
+
+    let reset: ReturnType<typeof setTimeout>;
+    button.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(source);
+        button.textContent = '복사됨';
+        button.dataset.copied = '';
+      } catch {
+        button.textContent = '복사 실패';
+      }
+      clearTimeout(reset);
+      reset = setTimeout(() => {
+        button.textContent = '복사';
+        delete button.dataset.copied;
+      }, 1500);
+    });
+  }
+
   const diagrams = document.querySelectorAll<HTMLElement>('pre.mermaid');
   if (diagrams.length > 0) {
     const { default: mermaid } = await import('mermaid');
@@ -47,7 +84,7 @@ const { title, description, date, tags = [], backHref, backLabel } = Astro.props
       theme: 'dark',
       securityLevel: 'strict',
       fontFamily:
-        'ui-sans-serif, system-ui, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif',
+        '"Pretendard Variable", Pretendard, ui-sans-serif, system-ui, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif',
     });
     mermaid.run({ nodes: Array.from(diagrams) });
   }
