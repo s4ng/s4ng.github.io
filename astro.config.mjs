@@ -14,7 +14,12 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkMermaid],
     shikiConfig: {
-      theme: 'material-theme-darker',
+      // Both themes are emitted inline; global.css picks the dark one when the
+      // page is in dark mode.
+      themes: {
+        light: 'github-light',
+        dark: 'material-theme-darker',
+      },
       wrap: true,
     },
   },

@@ -79,14 +79,36 @@ const { title, description, date, tags = [], backHref, backLabel } = Astro.props
   const diagrams = document.querySelectorAll<HTMLElement>('pre.mermaid');
   if (diagrams.length > 0) {
     const { default: mermaid } = await import('mermaid');
-    mermaid.initialize({
-      startOnLoad: false,
-      theme: 'dark',
-      securityLevel: 'strict',
-      fontFamily:
-        '"Pretendard Variable", Pretendard, ui-sans-serif, system-ui, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif',
+    const nodes = Array.from(diagrams);
+    // mermaid.run() replaces the node's text with the rendered SVG, so keep the
+    // source around: a theme switch has to draw the diagram again from scratch.
+    const sources = new Map(nodes.map((node) => [node, node.textContent ?? '']));
+    const media = window.matchMedia('(prefers-color-scheme: dark)');
+    const isDark = () =>
+      (document.documentElement.dataset.theme ??
+        (media.matches ? 'dark' : 'light')) === 'dark';
+
+    const render = () => {
+      mermaid.initialize({
+        startOnLoad: false,
+        theme: isDark() ? 'dark' : 'default',
+        securityLevel: 'strict',
+        fontFamily:
+          '"Pretendard Variable", Pretendard, ui-sans-serif, system-ui, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif',
+      });
+      for (const node of nodes) {
+        node.textContent = sources.get(node)!;
+        node.removeAttribute('data-processed');
+      }
+      mermaid.run({ nodes });
+    };
+
+    render();
+    document.addEventListener('themechange', render);
+    // Follow the system only while the reader has not picked a theme.
+    media.addEventListener('change', () => {
+      if (!document.documentElement.dataset.theme) render();
     });
-    mermaid.run({ nodes: Array.from(diagrams) });
   }
 </script>
 

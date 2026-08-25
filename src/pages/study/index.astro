@@ -49,7 +49,7 @@ const categories = sortByConfig(
     {
       categories.map(({ category, groups }) => (
         <section>
-          <h2 class="mb-5 text-xl font-bold text-accent">{category}</h2>
+          <h2 class="mb-5 text-xl font-bold text-fg">{category}</h2>
           <div class="space-y-6">
             {groups.map(({ group, docs }) => (
               <div>
@@ -61,12 +61,7 @@ const categories = sortByConfig(
                 <ul class="space-y-2 border-l border-border pl-4">
                   {docs.map((doc) => (
                     <li>
-                      <a
-                        href={`/study/${toSlug(doc.id)}/`}
-                        class="text-fg hover:text-accent"
-                      >
-                        {doc.data.title}
-                      </a>
+                      <a href={`/study/${toSlug(doc.id)}/`}>{doc.data.title}</a>
                     </li>
                   ))}
                 </ul>

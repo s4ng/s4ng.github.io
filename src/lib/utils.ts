@@ -6,11 +6,12 @@ export function formatDate(date: Date): string {
   return `${y}-${m}-${d}`;
 }
 
-/** Format a date as MM.DD, for lists that are already grouped under a year heading. */
-export function formatMonthDay(date: Date): string {
+/** Format a date as YYYY.MM.DD, for the flat post list. */
+export function formatListDate(date: Date): string {
+  const y = date.getUTCFullYear();
   const m = String(date.getUTCMonth() + 1).padStart(2, '0');
   const d = String(date.getUTCDate()).padStart(2, '0');
-  return `${m}.${d}`;
+  return `${y}.${m}.${d}`;
 }
 
 /** Content collection ids for `foo/index.md` become `foo/index`; strip it for clean URLs. */

@@ -6,14 +6,14 @@
 
 배포 주소: https://s4ng.github.io/
 
-- 다크 전용 테마 (배경: Material Darker `#212121`)
-- 상단 메뉴: 블로그 / 학습기록 / 정보
+- 라이트/다크 테마 (기본값은 시스템 설정, 헤더 오른쪽 버튼으로 전환하며 선택은 `localStorage`에 저장)
+- 상단 메뉴: 블로그 / 학습기록 / 정보 / 테마 전환 버튼
 
 ## 콘텐츠 구조
 
 콘텐츠는 두 개의 [Content Collection](https://docs.astro.build/en/guides/content-collections/)으로 관리합니다. 스키마는 `src/content.config.ts`에 정의되어 있습니다.
 
-- `src/content/blog/` — 블로그 글. 홈(`/`)에서 **연도별로 그룹핑**되어 나열됩니다.
+- `src/content/blog/` — 블로그 글. 홈(`/`)에서 **최신순 단일 목록**(`YYYY.MM.DD` + 제목)으로 나열됩니다.
   - frontmatter: `title`, `date`(YYYY-MM-DD), `tags`(선택)
   - URL: `/blog/<슬러그>/` (슬러그 = 파일/폴더 이름)
 - `src/content/study/` — 강의·책 공부 정리. `/study` 페이지에서 **대메뉴 → 서브그룹 → 순서**대로 나열됩니다.
